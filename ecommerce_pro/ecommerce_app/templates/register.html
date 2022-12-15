@@ -1,0 +1,59 @@
+<html>
+    <head>
+        {% include 'base.html' %}
+        <style>
+            .vertical-center {
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                -ms-transform: translateY(-50%);
+                transform: translateY(-50%);
+              }
+        </style>
+        <!-- style="background-color:#33cc00; color:#8c1aff" -->
+    </head>
+    <body><br>
+        <div class="container " >
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <center>
+                        {% if messages %}
+                        <ul class="messages">
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    <p style="color:red"> {{ message }} </p>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </center>
+                </div>
+            </div>
+        </div>
+        
+        <form action="register" method="post">
+            {% csrf_token %}
+            <div class="container " >
+                <div class="row">
+
+                    <div class="col-md-4 offset-md-4 " >
+                        <h2 style="text-align: center">Register</h2>
+                        <label"> User Name : </label>
+                        <input type="text" name="username" class="form-control" required>
+                        <label"> First Name : </label>
+                        <input type="text" name="first_name" class="form-control" required>
+                        <label"> Last Name : </label>
+                        <input type="text" class="form-control" name="last_name">
+                        <label"> Email : </label>
+                        <input type="text" class="form-control" name="email" required>
+                        <label"> Password : </label>
+                        <input type="password" class="form-control" name="password" required>
+                        <label"> Confirm Password : </label>
+                        <input type="password" class="form-control" name="confirm_password" required> <br>
+                        <button class="btn btn-success " >submit</button><br><br>
+                        <a href="{% url 'login' %}"> Existing user Sign In here</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        {% include 'base.html' %}
+       <center>
+        <h2>Home Page</h2>
+        <p> Hello {{ user.username }}   </p> 
+        <p>You're successfully logged in</p>
+
+        {% if request.user.is_authenticated %}
+
+        <a href="{%  url 'logout' %}">Logout</a><br>
+        <a href="{% url 'change_password' %}">Reset Password </a>
+        
+        {% endif %}
+       </center> 
+    </head>
+    <body>
+    </body>
+</html>
